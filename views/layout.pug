@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title Sushi Restaurant Website
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    script(type='text/javascript' src='/javascripts/vendor/all.js')
+    script(type='text/javascript' src='/javascripts/handlebars_templates.js')
+    script(type='text/javascript' src='/javascripts/application.js')
+  body
+    header
+      a.logo(href="/")
+        img(src="/images/logo.png", alt="logo")
+      div.cart
+        
+    block content
+
+    footer
+
+    script(type='text/javascript' src='/javascripts/models/dish.js')
+    script(type='text/javascript' src='/javascripts/collections/dishes.js')
+    script(type='text/javascript' src='/javascripts/collections/cart_items.js')
+    script(type='text/javascript' src='/javascripts/views/index.js')
+    script(type='text/javascript' src='/javascripts/views/item.js')
+    script(type='text/javascript' src='/javascripts/views/item_panel.js')
+    script(type='text/javascript' src='/javascripts/views/cart.js')
+    script(type='text/javascript' src='/javascripts/views/cart_link.js')
+    script(type='text/javascript' src='/javascripts/views/checkout.js')
+    script(type='text/javascript').
+      App.init(!{JSON.stringify(dishes)});
+    script(type='text/javascript' src='/javascripts/router.js')
