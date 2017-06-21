@@ -8,19 +8,15 @@ var CheckoutView = Backbone.View.extend({
   },
   plus: function(e) {
     var id = this.getIdFromEvent(e);
-    // console.log('click plus on: ' + id);
     this.trigger('increment_item', id);
   },
   minus: function(e) {
     var id = this.getIdFromEvent(e);
     this.trigger('decrement_item', id);
-    // console.log('click plus on: ' + id);
   },
   order: function(e) {
     e.preventDefault();
     router.navigate('/', { trigger: true });
-    // window.history.back();
-    // App.indexView();
   },
   getIdFromEvent: function(e) {
     return +$(e.currentTarget).closest('tr').attr('data-id');
@@ -32,9 +28,7 @@ var CheckoutView = Backbone.View.extend({
     }))
   },
   initialize: function(options) {
-    // console.log('init chjeckout:');
     this.total = options.total;
-    // console.log(total);
     this.render();
   }
 });

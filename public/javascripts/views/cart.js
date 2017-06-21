@@ -1,5 +1,4 @@
 var CartView = Backbone.View.extend({
-  //create collection on new
   el: $('#cart')[0],
   template: App.templates.cart_items,
   events: {
@@ -7,7 +6,6 @@ var CartView = Backbone.View.extend({
   },
   emptyCart: function(e) {
     e.preventDefault();
-    console.log('click empty cart');
     this.collection.reset();
   },
   render: function() {
@@ -15,9 +13,6 @@ var CartView = Backbone.View.extend({
       items: this.collection.toJSON(),
       total: this.collection.totalCost()
     }));
-  },
-  onChange: function() {
-    console.log('change in cart view');
   },
   addItem: function() {
     this.render();
@@ -36,7 +31,6 @@ var CartView = Backbone.View.extend({
     this.render();
   },
   initialize: function() {
-    // console.log('this.co')
     this.render();
     this.listenTo(this.collection, 'add change', this.addItem);
     this.listenTo(this.collection, 'remove reset', this.removeItem);
