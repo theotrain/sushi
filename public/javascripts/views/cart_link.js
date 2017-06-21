@@ -4,12 +4,13 @@ var CartLinkView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({ quantity: this.quantity }));
   },
-  initialize: function(quantity) {
-    this.setQuantity(quantity);
+  initialize: function() {
+    this.updateQuantity();
     this.render();
+    this.listenTo(this.collection, "add remove reset", this.updateQuantity);
   },
-  setQuantity: function(quantity) {
-    this.quantity = quantity || 0;
+  updateQuantity: function() {
+    this.quantity = this.collection.length;
     this.render();
   }
 });

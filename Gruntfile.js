@@ -43,8 +43,6 @@ function removeWhitespace(template) {
 }
 
 function extractFileName(file) {
-  //'handlebars/album.hbs'
   var name = file.match(/\/(.+)\.hbs$/).pop().split('/');
   return name[name.length - 1];
-  // return file.match(/\/(.+)\.hbs$/).pop();
 }

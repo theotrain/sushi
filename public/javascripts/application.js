@@ -15,8 +15,9 @@ var App = {
   initCart: function() {
     this.cart = new CartItemsCollection();
     this.cart_view = new CartView({ collection: this.cart });
-    this.cart_link_view = new CartLinkView(this.cart.length);
-    this.cart.listenTo(this.cart, "add remove reset", this.updateCartLink.bind(this));
+    this.cart_link_view = new CartLinkView({ collection: this.cart });
+    // this.cart_link_view = new CartLinkView(this.cart.length);
+    // this.cart.listenTo(this.cart, "add remove reset", this.updateCartLink.bind(this));
     window.addEventListener('unload', function() {
       localStorage.setItem('sushiCart', JSON.stringify(this.cart.toJSON()));
     }.bind(this));
@@ -79,11 +80,11 @@ var App = {
     console.log('add to cart: ' + id);
     this.cart.addItem(this.itemFromId(id));
   },
-  updateCartLink: function() {
-    this.cart_link_view.setQuantity(this.cart.length);
-    console.log('adding to localStorage');
-    console.log(JSON.stringify(this.cart.toJSON()));
-  },
+  // updateCartLink: function() {
+  //   this.cart_link_view.setQuantity(this.cart.length);
+  //   console.log('adding to localStorage');
+  //   console.log(JSON.stringify(this.cart.toJSON()));
+  // },
   itemFromId: function(id) {
     return this.dishes.findWhere({ id: id }).toJSON();
   },

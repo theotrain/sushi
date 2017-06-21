@@ -3,7 +3,6 @@ var path = require('path'),
     router = express.Router(),
     _ = require('underscore'),
     Dishes = require(path.resolve(path.dirname(__dirname), 'api/JSON-connect'));
-// Dishes.get() is array of objects in json format
 
 function getAlbums() {
   return JSON.parse(fs.readFileSync(file_path, 'utf8')).data;
